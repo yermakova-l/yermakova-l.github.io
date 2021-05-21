@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+      h1, h2, h3 {
+        font-family: "Montserrat", sans-serif;
+        width: 90%;
+        margin: 20px auto;
+      }
+      h3 { font-size: 18px;}
+      .section-header {
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        color: #811b7e;
+        letter-spacing: 1px;
+      }
+      /* All upper styles delete when insert into page */
+
+      .calculator_block {
+        width: 100%;
+         min-width: 320px; 
+         max-width: 500px;
+         margin: 0 auto;
+         background-color: #efefef;
+         padding-top: 30px;
+         padding-bottom: 30px;
+      }
+      #cina {
+         /* background-color: #fff;*/
+          background-color: #ff4081;
+          width: 250px;
+          height: 40px;
+          margin: 0 auto 20px auto;
+          text-align: center;
+          font-size: 20px;
+          line-height: 40px;
+          font-family: 'Open Sans', sans-serif;
+          color:#fff;
+      }
+      #service_calc{
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 350px;
+          
+      }
+      .custom-control {
+          min-width: 250px;
+      }
+      
+      .form-item {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          min-height: 300px;
+          z-index: -1;
+          
+          
+      }
+      .form-item-header {
+          width: 80%;
+          text-align: center;
+          margin: 0 auto;
+          margin-bottom: 40px;
+          color: #333;
+
+      }
+      .form-item-body {
+          min-height: 200px;
+          width: 80%;
+          margin: 0 auto;
+         
+      }
+      .form-item-body p {
+          margin-top: 0px;
+          margin-bottom: 25px;
+          font-size: 14px;
+          font-family: 'Open Sans', sans-serif;
+      }
+      .active {
+          z-index: 100;
+      }
+      #direction {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 30px;
+          margin-top: 60px;
+      }
+      #next, #prev {
+          width: 100px;
+          height: 40px;
+          background-color: #607538;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      #prev {
+          margin-right: 30px;
+      }
+      button[type='submit'] {
+          display: none;
+          margin: 0 auto;
+      }
+ 
+     
+    /********************************************************/
+    /******************  CUSTOM RADIO INPUT  ****************/
+    /********************************************************/
+    /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_rangeslider */
+    input[type=range] {
+        width: 100%;
+    }
+    /* The container from label */
+    .custom-radio-container {
+        font-family: 'Open Sans', sans-serif;
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* Hide the browser's default radio button */
+    .custom-radio-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    /* Create a custom radio button */
+    .custom-radio-container .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 22px;
+        width: 22px;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .custom-radio-container:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the radio button is checked, add a blue background */
+    .custom-radio-container input:checked ~ .checkmark {
+    /*background-color: #2196F3;*/
+        /*background-color: #811b7e;*/
+        background-color: #ff4081;
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .custom-radio-container .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .custom-radio-container input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .custom-radio-container .checkmark:after {
+        top:8px;
+        left: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: white;
+    }
+
+/****************** END OF RADIO INPUT  ***********************/
+
+
+/**************************************************************/
+/******************  CUSTOM CHECKBOX INPUT  *******************/
+/**************************************************************/
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox */
+/* The container */
+.custom-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.custom-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.custom-checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-checkbox-container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox-container input:checked ~ .checkmark {
+  /*background-color: #2196F3;*/
+  background-color: #ff4081;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.custom-checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.custom-checkbox-container label {
+    font-family: "Open";
+}
+/************* END OF CUSTOM CHECKBOX INPUT  ****************/
+
+   
+/************************************************************/
+/******************* CUSTOM RANGE INPUT *********************/
+/************************************************************/
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+
+.custom-range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  
+  margin-top: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.custom-range-slider:hover {
+  opacity: 1;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  /*background: #04AA6D;*/
+  background-color: #ff4081;
+  cursor: pointer;
+
+}
+
+.custom-range-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  /*background: #04AA6D;*/
+  background-color: #ff4081;
+  cursor: pointer;
+}
+/****************** END OF CUSTOM RANGE INPUT  ***********************/
+    
+        
+
+  </style>
+</head>
+<body>
+    <h2 class='section-header' >Розрахунок ціни бухгалтерських послуг</h2>
+    <div class="calculator_block">
+        
+        <p id ="cina">ВАРТІСТЬ = <span id='sum'>0</span> грн</p>
+        
+                                                
+        <form id='service_calc' action="">
+            <div class='form-item active' id='0'>
+                <div class="form-item-header">
+                    <h3>ОРГАНІЗАЦІЙНО-ПРАВОВА ВЛАСНІСТЬ</h3>
+                </div>
+                <div class='form-item-body '>
+                    <label class="custom-radio-container" for="tov">ТОВ
+                        <input type="radio" id="tov" name="ownership_form" value="tov">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-radio-container" for="fop">ФОП
+                        <input type="radio" id="fop" name="ownership_form" value="fop">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div class='form-item' id='1'>
+                <div class="form-item-header">
+                    <h3>СИСТЕМА ОПОДАТКУВАННЯ</h3>
+                </div>
+                <div class='form-item-body ' >
+                    <label class="custom-radio-container" for="tax_system_single">Єдиний податок
+                        <input type="radio" id="tax_system_single" name="tax_system" value="tax_system_single">
+                        <span class="checkmark"></span>
+                    </label>       
+                    <label class="custom-radio-container" for="tax_system_single_pdv">Єдиний податок, платник ПДВ  
+                        <input type="radio" id="tax_system_single_pdv" name="tax_system" value="tax_system_single_pdv">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-radio-container" for="tax_system_common">Загальна система оподаткування  
+                        <input type="radio"  id="tax_system_common" name="tax_system" value="tax_system_common">
+                        <span class="checkmark"></span>
+                    </label>        
+                    <label class="custom-radio-container" for="tax_system_common_pdv">Загальна система оподаткування, платник ПДВ
+                        <input type="radio"  id="tax_system_common_pdv" name="tax_system" value="tax_system_common_pdv">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+            </div>
+            <div class='form-item' id='2'>
+                <div class="form-item-header">
+                    <h2>Сфера діяльності</h2>
+                </div>
+                <div class='form-item-body ' id='services'>
+                    <label class="custom-checkbox-container" for="opt">Оптова торгівля
+                        <input type="checkbox"  id="opt" name="services" value="opt">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="rozdribna">Роздрібна торгівля
+                        <input type="checkbox"  id="rozdribna" name="services" value="rozdribna">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="poslugy">Послуги
+                        <input type="checkbox"  id="poslugy" name="services" value="poslugy">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="vyrobnyctvo">Виробництво
+                        <input type="checkbox"  id="vyrobnyctvo" name="services" value="vyrobnyctvo">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="budivnyctvo">Будівництво
+                        <input type="checkbox"  id="budivnyctvo" name="services" value="budivnyctvo">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="silske_gospodarstvo">Сільське господарство
+                        <input type="checkbox" id="silske_gospodarstvo" name="services" value="silske_gospodarstvo">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="zovn_ekon_diyalnist">Зовнішньоекономічна діяльність
+                        <input type="checkbox" id="zovn_ekon_diyalnist" name="services" value="zovn_ekon_diyalnist">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="inshe">Інше
+                        <input type="checkbox" id="inshe" name="services" value="inshe">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                </div>
+            </div>
+            <div class='form-item' id='3'>
+                <div class="form-item-header">
+                    <h2>Додаткові послуги</h2>
+                </div>
+                <div class='form-item-body '>
+                    <label class="custom-checkbox-container" for="akcyz">Акциз
+                        <input type="checkbox"  id="akcyz" name="additional_services" value="akcyz">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox-container" for="lystuvannya">Реєстрація вхідної-вихідної документації, листування та відповіді контрагентам
+                        <input type="checkbox"  id="lystuvannya" name="additional_services" value="lystuvannya">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div class='form-item' id='4'>
+                <div class="form-item-header">
+                    <h2>Кількість касових апаратів</h2>
+                </div>
+                <div class='form-item-body'>
+                    <label for="kas_apparat">Касовий апарат, штук</label>
+                    <output name="amount" id="amount" for="kas_apparat">0</output>
+                    <input class="custom-range-slider" type="range" id="kas_apparat" name="kas_apparat" min="0" max="100" step="1" value="0" oninput="amount.value=kas_apparat.value"><br>
+                    
+                    <p>Вартість за один касовий апарат:<br> ТОВ - 1000 грн, ФОП - 500 грн</p>
+                </div>
+            </div>
+            <div class='form-item' id='5'>
+                <div class="form-item-header">
+                    <h2>Облік зарплати</h2>
+                </div>
+                <div class='form-item-body'>
+                    <label for="zarplata">Кількість працівників</label>
+                    <output name="pracivnyky" id="pracivnyky" for="zarplata">0</output>
+                    <input class="custom-range-slider" type="range" id="zarplata" name="zarplata" min="0" max="100" step="1" value="0" oninput="pracivnyky.value=zarplata.value"><br>
+                    <p>Вартість за одного працівника: 200 грн</p>
+                </div>
+            </div>
+            <div class='form-item' id='6'>
+                <div class="form-item-header">
+                    <h2>Облік кадрів</h2>
+                </div>
+                <div class='form-item-body'>
+                    <label for="kadry">Кількість працівників</label>
+                    <output name="pracivnyky_kadry" id="pracivnyky_kadry" for="kadry">0</output>
+                    <input class="custom-range-slider" type="range" id="kadry" name="kadry" min="0" max="100" step="1" value="0" oninput="pracivnyky_kadry.value=kadry.value"><br>
+                    <p>Вартість за одного працівника: 150 грн</p>
+            </div>
+            </div>
+            <div class='form-item' id='7'>
+                <div class="form-item-header">
+                    <h2>Реалізація товарів/послуг</h2>
+                </div>
+                <div class='form-item-body' id='realizaciya'>
+                    <div class="custom-control" >
+                        <label for="vyhidni_doc">Вихідних документів, шт</label>
+                        <output name="vyhidni_doc_kilk" id="vyhidni_doc_kilk" for="vyhidni_doc">0</output>
+                        <input class="custom-range-slider" type="range" id="vyhidni_doc" name="vyhidni_doc" min="0" max="1000" step="10" value="0" oninput="vyhidni_doc_kilk.value=vyhidni_doc.value"><br>
+                        <p>За 1 шт - 25 грн</p>
+                    </div>
+                    <div class="custom-control" >
+                        <label for="podatk_nakladni">Податкових накладних, шт</label>
+                        <output name="podatk_nakladni_kilk" id="podatk_nakladni_kilk" for="podatk_nakladni">0</output>
+                        <input class="custom-range-slider" type="range" id="podatk_nakladni" name="podatk_nakladni" min="0" max="1000" step="10" value="0" oninput="podatk_nakladni_kilk.value=podatk_nakladni.value"><br>
+                        <p>За 1 шт - 50 грн</p>
+                    </div>
+                </div>
+            </div>
+            <div class='form-item' id='8'>
+                <div class="form-item-header">
+                    <h2>Проведення платежів по банку</h2>
+                </div>
+                <div class='form-item-body'>
+                    <div class="custom-control" >
+                        <label for="bank">Кількість платежів, шт</label>
+                        <output name="bank_kilk" id="bank_kilk" for="bank">0</output>
+                        <input class="custom-range-slider" type="range" id="bank" name="bank" min="0" max="100" step="1" value="0" oninput="bank_kilk.value=bank.value"><br>
+                        <p>Вартість платежів за 1 шт - 40 грн</p>
+                    </div>
+                </div>
+            </div>
+            <div class='form-item' id='9'>
+                <div class="form-item-header">
+                    <h2>Обробка первинної документації</h2>
+                </div>
+                <div class='form-item-body'>
+                    <div class="custom-control" >
+                        <label for="bank">Кількість документів, шт</label>
+                        <output name="pervynna_kilk" id="pervynna_kilk" for="pervynna_doc">0</output>
+                        <input class="custom-range-slider" type="range" id="pervynna_doc" name="pervynna_doc" min="0" max="200" step="1" value="0" oninput="pervynna_kilk.value=pervynna_doc.value"><br>
+                        <p>Прихід, авансові звіти, облік ТМЦ, зведення фінзвітності</p>
+                        <p>1-50 документів - 1500 грн</p>
+                        <p>Більше 50 документів за 1 шт - 30 грн</p>
+                    </div>
+                </div>
+            </div>
+            <div class='form-item' id='10'>
+                <div class="form-item-header">
+                    <h2>Зателефонуйте нам, щоб уточнити умови віддаленого обслуговування</h2>
+                    <h3>+38 098 024 55 04</h3>
+                    <p>Або замовте зворотній дзвінок. Наші спеціалісти зателефонують вам
+                        в найближчий час в робочі години. 
+                    </p>
+                    <p>З нами всі справи в порядку! Вигідно і безпечно! </p>
+
+                </div>
+            
+            </div>
+        </form>
+        <div id='direction'>
+            <div id="prev">Назад</div>
+            <div id="next">Далі</div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+<script src="./data.js"></script>
+
+<script>
+    (function () {
+
+    /*************************************/
+    /* FLIP SLIDES logic and controls ****/
+    /*************************************/
+
+    var slides = document.querySelectorAll('.form-item');
+    var prev  = document.getElementById('prev');
+    var next = document.getElementById('next');
+    var currentSlide = 0;
+    var activeSlide = 0;
+    var lastSlideNumber = slides.length;    
+
+    // Events Listeners prev next buttons
+    prev.addEventListener('click', flipSlide);
+    next.addEventListener('click', flipSlide);
+
+    /* Prev Next Event Handler 
+     * Check last and First Slide and Check Slide
+     * if inputs are checked
+    */
+    function flipSlide(){
+        if(event.target.id === 'next' && activeSlide != lastSlideNumber && checkSlide(currentSlide) )
+        {
+            activeSlide = activeSlide + 1;
+            makeActiveSlide(activeSlide);
+            currentSlide = activeSlide;
+            console.log("currentSlide = " + currentSlide);
+        }
+        if(event.target.id === 'prev' && activeSlide != 0){
+            activeSlide = activeSlide - 1;
+            makeActiveSlide(activeSlide);
+            currentSlide = activeSlide;
+            console.log("currentSlide = " + currentSlide);
+        }
+        
+    }
+    // Toggle active class
+    function makeActiveSlide(n){
+        var currentSlideEl = document.getElementById(currentSlide).classList.remove('active');
+        var newActiveSlide = document.getElementById(n).classList.add('active');
+    }
+
+// Are there on slide checked elements before leaving this slide
+    function checkSlide(currentSlide){
+    //var checkBoxes_checked_elem_array = null;
+    console.log("currentSlide before switch = " + currentSlide);
+        switch(currentSlide){
+            case 0:
+                if(!isRadioBoxChecked('ownership_form')){
+                    return false;
+                }
+                //document.getElementById('service_calc').reset();
+                return true;
+            case 1:
+                if(!isRadioBoxChecked("tax_system"))
+                {
+                    return false;
+                }
+                return true;
+            case 2:
+                if(!isAnyCheckboxChecked('services'))
+                {
+                    return false;
+                }
+                return true;
+            case 3:
+                if(!isAnyCheckboxChecked('additional_services'))
+                {
+                    return false;
+                }
+                return true;
+            case 4: case 5: case 6: case 7: case 8: 
+                return true;
+            case 9:
+                if(document.getElementById('next').style.display === 'none'){
+                    document.getElementById('next').style.display = 'block';
+                }
+                
+                return true;
+            case 10:
+                document.getElementById('next').style.display = 'none';
+                return false;
+            default:
+                console.log("Error! There is not such slide number");
+        }
+    }
+/*******   END FLIP SLIDES   *********/
+
+/*************************************/
+/**** UPDATE CLIENT DATA AND SUM *****/
+/*************************************/
+
+
+// SUM SPAN UPDATE
+function updateSum(number){
+    document.getElementById('sum').innerText = number.toString();
+}
+
+// ALL INPUTS EL EVENT LISTENERS
+var allCalcInputs = document.querySelector('.calculator_block').querySelectorAll('input');
+for(var i = 0; i < allCalcInputs.length; i++){
+    allCalcInputs[i].addEventListener('change', updateClientData);
+} 
+
+// INPUTS CHANGE EVENTs HANDLER
+// Update clientData and currentSum Objects
+// priceList assigned to tovPriceList or fopPriceList
+
+var clientPriceList = {};
+var currentServicesCost = 0;
+var checkBoxes_checked_elem_array = [];
+var sum = 0;
+
+function updateClientData(e){
+    var inputEl = e.target;
+    var inputElId = inputEl.id;
+  
+    switch(inputEl.name){
+        case 'ownership_form':
+            // Save tov/fop string to clientData.ownership_form 
+            clientData.ownership_form = inputElId;
+            document.getElementById('service_calc').reset();
+            // Assign tov or fop PRICELIST to clientData obj
+            if(clientData.ownership_form === 'tov'){
+                clientPriceList = tovPriceList;
+                document.getElementById('tov').checked = true;
+            }
+            if(clientData.ownership_form === 'fop'){
+                clientPriceList = fopPriceList;
+                document.getElementById('fop').checked = true;
+            } 
+            // Set to 0 all props of object currentSum
+            resetObjectValuesToZero(currentSum);
+            
+            currentServicesCost  =  sumToDisplay(currentSum); 
+            updateSum(currentServicesCost);
+            console.log('********* End of ownership_form ************');
+            break;
+        case 'tax_system':
+        console.log('********* Start of tax_system ************');
+            clientData.tax_system = checkedRadioBoxValue("tax_system");
+            resetObjectValuesToZero(currentSum.tax_system);
+            currentSum.tax_system[clientData.tax_system] = clientPriceList.tax_system[clientData.tax_system];
+            
+            currentServicesCost = sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            console.log('********* End of tax_system ************');
+            break;
+
+        case 'services':
+            console.log('********* Start of services ************');
+            // Array of checked Elements with name SERVICES
+            checkBoxes_checked_elem_array = document.querySelectorAll("input[name='services']:checked");
+            // Array of Values of checked Elements with name SERVICES
+            var services_value_array = [];
+
+            for (var i = 0; i < checkBoxes_checked_elem_array.length; i++) {
+                services_value_array.push(checkBoxes_checked_elem_array[i].value);
+                console.log(checkBoxes_checked_elem_array[i].value);
+            }
+            clientData.services = services_value_array;
+            resetObjectValuesToZero(currentSum.services);
+
+            for( var i = 0; i < clientData.services.length; i++ ) {
+                currentSum.services[clientData.services[i]] = clientPriceList.services[clientData.services[i]];
+
+            }
+            currentServicesCost = sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            console.log('********* End of services ************');
+            break;
+
+        case 'additional_services':
+            console.log('********* Start of additional services ************');
+            checkBoxes_checked_elem_array = document.querySelectorAll("input[name='additional_services']:checked");
+            // Array of Values of checked Elements with name SERVICES
+            var additional_services_value_array = [];
+
+            for (var i = 0; i < checkBoxes_checked_elem_array.length; i++) {
+                additional_services_value_array.push(checkBoxes_checked_elem_array[i].value);
+                console.log("checkBoxes_checked_elem_array " + checkBoxes_checked_elem_array[i].value);
+            }
+            
+            clientData.additional_services = additional_services_value_array;
+            resetObjectValuesToZero(currentSum.additional_services);
+            // Write to currentSum cost of chosen additional services
+            for( var i = 0; i < clientData.additional_services.length; i++ ) {
+                currentSum.additional_services[clientData.additional_services[i]] = clientPriceList.additional_services[clientData.additional_services[i]];
+
+            }
+            currentServicesCost = sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            console.log('********* End of additional services ************');
+            break;
+        case 'kas_apparat':
+            /********************** SLIDE 4 ******************************/
+            var kass_apparat_kilkist = document.getElementById('kas_apparat').value;
+            clientData.kas_apar_kilk = kass_apparat_kilkist;
+            clientData.kas_apar_vartist = clientData.kas_apar_kilk * clientPriceList.kas_apparat.kas_apparat_odyn;
+            currentSum.kas_apar_vartist = clientData.kas_apar_vartist;
+            currentServicesCost  =  sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            break;
+        case 'zarplata':
+            var kilkist_pracivnykiv = document.getElementById('zarplata').value;
+            clientData.zarplata.zarplata_kilk = kilkist_pracivnykiv;
+            clientData.zarplata.zarplata_vartist = clientData.zarplata.zarplata_kilk * clientPriceList.zarplata.zarplata_odyn;
+            currentSum.zarplata.zarplata_vartist = clientData.zarplata.zarplata_vartist;
+            currentServicesCost  =  sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            break;
+        case 'kadry':
+            clientData.kadry.kadry_kilk = document.getElementById('kadry').value;
+            console.log('kadry ' + clientData.kadry.kadry_kilk );
+            clientData.kadry.kadry_vartist = clientData.kadry.kadry_kilk * clientPriceList.kadry.kadry_odyn;
+            currentSum.kadry.kadry_vartist = clientData.kadry.kadry_vartist;
+            currentServicesCost  =  sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            break;
+        case 'vyhidni_doc':
+            /********************** SLIDE 7 ******************************/
+            clientData.realizaciya.vyhidni_doc_kilk = document.getElementById('vyhidni_doc').value;
+            clientData.realizaciya.podatk_nakladni_kilk = document.getElementById('podatk_nakladni').value;
+            clientData.realizaciya.vyhidni_doc_vartist = clientData.realizaciya.vyhidni_doc_kilk * clientPriceList.realizaciya.vyhidni_doc_odyn;
+            clientData.realizaciya.podatk_nakladni_vartist = clientData.realizaciya.podatk_nakladni_kilk * clientPriceList.realizaciya.podatk_nakladni_odyn;
+            currentSum.realizaciya.vyhidni_doc_vartist = clientData.realizaciya.vyhidni_doc_vartist;
+            currentSum.realizaciya.podatk_nakladni_vartist = clientData.realizaciya.podatk_nakladni_vartist;
+            currentServicesCost  =  sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            break;
+        case 'podatk_nakladni':
+            /********************** SLIDE 7 ******************************/
+            clientData.realizaciya.vyhidni_doc_kilk = document.getElementById('vyhidni_doc').value;
+            clientData.realizaciya.podatk_nakladni_kilk = document.getElementById('podatk_nakladni').value;
+            clientData.realizaciya.vyhidni_doc_vartist = clientData.realizaciya.vyhidni_doc_kilk * clientPriceList.realizaciya.vyhidni_doc_odyn;
+            clientData.realizaciya.podatk_nakladni_vartist = clientData.realizaciya.podatk_nakladni_kilk * clientPriceList.realizaciya.podatk_nakladni_odyn;
+            currentSum.realizaciya.vyhidni_doc_vartist = clientData.realizaciya.vyhidni_doc_vartist;
+            currentSum.realizaciya.podatk_nakladni_vartist = clientData.realizaciya.podatk_nakladni_vartist;
+            currentServicesCost  =  sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            break;
+        case 'bank':
+            /********************** SLIDE 8 ******************************/
+            clientData.bank.platezy_kilk = document.getElementById('bank').value;
+            clientData.bank.bank_vartist = clientData.bank.platezy_kilk * clientPriceList.bank.platezy_odyn;
+            currentSum.bank.bank_vartist = clientData.bank.bank_vartist;
+            currentServicesCost = sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            break;
+        case 'pervynna_doc':
+            clientData.pervynna_doc.pervynna_doc_kilk = document.getElementById('pervynna_doc').value;
+            clientData.pervynna_doc.pervynna_doc_vartist =(clientData.pervynna_doc.pervynna_doc_kilk <= 50 && clientData.pervynna_doc.pervynna_doc_kilk != 0)? 1500: clientData.pervynna_doc.pervynna_doc_kilk * 30;  
+            currentSum.pervynna_doc.pervynna_doc_vartist = clientData.pervynna_doc.pervynna_doc_vartist;
+            currentServicesCost = sumToDisplay(currentSum);
+            updateSum(currentServicesCost);
+            break;
+    }
+}
+
+/* Operations with objects that contain inner objects */
+/******************************************************/
+// SHOW ALL values in OBJECT
+
+function showObjectValues (obj) {
+    Object.keys(obj).forEach(function (key) {
+        if (typeof obj[key] === 'object') {
+            console.log('Show ' + key + ' ' + obj[key]);
+            return showObjectValues(obj[key]);
+        }
+        
+        console.log('Show ' + key + ' ' + obj[key]);
+    });
+}
+
+function resetObjectValuesToZero (obj) {
+    Object.keys(obj).forEach(function (key) {
+        if (typeof obj[key] === 'object') {
+            console.log('Reset key ' + key + ' obj[key] ' + obj[key]);
+            return resetObjectValuesToZero(obj[key]);
+        }
+        obj[key] = 0;
+        console.log('Reset key ' + key + ' obj[key] ' + obj[key]);
+    });
+}
+function sumObjectValues (obj) {
+    Object.keys(obj).forEach(function (key) {
+        if (typeof obj[key] === 'object') {
+            console.log('Sum ' + sum + " " + key + ' ' + obj[key]);
+            return sumObjectValues(obj[key]);
+        }
+        sum = parseInt(sum) + parseInt(obj[key]);
+        console.log('Sum ' + sum + " " + key + ' ' + obj[key]);
+    });
+}
+
+function sumToDisplay(obj){
+    sum = 0;
+    sumObjectValues (obj);
+    return sum;
+}
+/* Operations with inputs */
+/*************************************/
+// Return VALUE OF CHECKED RADIO BOX
+
+function checkedRadioBoxValue(name){
+    return document.querySelector("input[name='" + name + "']:checked").value;
+}
+
+// Return TRUE IF one of RADIO BOXES CHECKED
+function isRadioBoxChecked(name){
+    if(document.querySelector("input[name='" + name + "']:checked")){
+        return true;
+    } else {
+        return false;
+    }
+}
+// Return TRUE IF ANY of CHECK BOXES CHECKED
+function isAnyCheckboxChecked(name){
+    var arrLength = document.querySelectorAll("input[name='" + name + "']:checked").length;
+    console.log('services arr length' + arrLength);
+    if( arrLength >= 1){
+        
+        console.log('services' + true);
+        return true;
+    } else {
+        console.log('services' + false);
+        return false;
+    }
+}
+
+
+
+
+}());
+</script>
+</body>
+</html>
+
+
+
+
+
+
