@@ -1,0 +1,465 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  width: 90%;
+  margin: 20px auto;
+}
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #811b7e;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+}
+
+/* All upper styles delete when insert into page */
+
+.calculator_block {
+  width: 100%;
+  min-width: 320px;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #efefef;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#cina {
+  /* background-color: #fff;*/
+  /*background-color: #ff4081;*/
+  background-color: #811b7e;
+  width: 250px;
+  height: 40px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+}
+#service_calc {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 240px;
+}
+.custom-control {
+  min-width: 250px;
+}
+
+.form-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 300px;
+  z-index: -1;
+}
+.form-item-header {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  color: #333;
+}
+.form-item-header h2 {
+  margin: 0;
+}
+.form-item-body {
+  min-height: 200px;
+  width: 80%;
+  margin: 0 auto;
+}
+.form-item-body p {
+  margin-top: 0px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+.active {
+  z-index: 100;
+}
+#direction {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+#next,
+#prev {
+  width: 100px;
+  height: 40px;
+  background-color: #607538;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  z-index: 200;
+}
+#prev {
+  margin-right: 30px;
+}
+button[type="submit"] {
+  margin: 0 auto;
+}
+
+/********************************************************/
+/******************  CUSTOM RADIO INPUT  ****************/
+/********************************************************/
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_rangeslider */
+input[type="range"] {
+  width: 100%;
+}
+/* The container from label */
+.custom-radio-container {
+  font-family: "Open Sans", sans-serif;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.custom-radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.custom-radio-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.custom-radio-container input:checked ~ .checkmark {
+  /*background-color: #2196F3;*/
+  background-color: #811b7e;
+  /*background-color: #ff4081;*/
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.custom-radio-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.custom-radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.custom-radio-container .checkmark:after {
+  top: 8px;
+  left: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+/****************** END OF RADIO INPUT  ***********************/
+
+/**************************************************************/
+/******************  CUSTOM CHECKBOX INPUT  *******************/
+/**************************************************************/
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox */
+/* The container */
+.custom-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.custom-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.custom-checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-checkbox-container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox-container input:checked ~ .checkmark {
+  background-color: #811b7e;
+  /*background-color: #ff4081;*/
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.custom-checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.custom-checkbox-container label {
+  font-family: "Open";
+}
+/************* END OF CUSTOM CHECKBOX INPUT  ****************/
+
+/************************************************************/
+/******************* CUSTOM RANGE INPUT *********************/
+/************************************************************/
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+
+.custom-range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+
+  margin-top: 15px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.custom-range-slider:hover {
+  opacity: 1;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #811b7e;
+  /*background-color: #ff4081;*/
+  cursor: pointer;
+}
+
+.custom-range-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #811b7e;
+  /*background-color: #ff4081;*/
+  cursor: pointer;
+}
+/****************** END OF CUSTOM RANGE INPUT  ***********************/
+
+/***************** DELETE  MODAL From main page  *************************/
+/************ Modal Call Back********************/
+
+.thankyou {
+  display: none;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 300;
+  padding-top: 150px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+/* The Close Button */
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+#contact_form_small {
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+}
+#contact_form_small h3 {
+  color: #811b7e;
+  margin-top: 10px;
+}
+#myModal .modal-content {
+  background-color: #fdfdfd;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+}
+#myModal .modal-content .inner-wrap {
+  margin-bottom: 0;
+  padding: 10px;
+  border-radius: 6px;
+}
+.inner-wrap label {
+  display: block;
+  color: #811b7e;
+  margin-bottom: 10px;
+}
+.inner-wrap input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-width: 0 0 2px 0;
+  border-color: transparent transparent #811b7e transparent;
+}
+.inner-wrap input:focus-within {
+  outline: none;
+  border-width: 0 0 2px 0;
+  border-color: transparent transparent #2e062d transparent;
+}
+
+#myModal .modal-content .button-section {
+  text-align: center;
+  padding: 10px;
+}
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+#myModal .modal-content .button-section input[type="submit"] {
+  background-color: #fd7e14;
+  padding: 8px 20px 8px 20px;
+  color: #fff;
+  font-size: 15px;
+  margin: 20px auto 0 auto;
+  width: 250px;
+  height: 50px;
+  border: none;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  display: block;
+}
+
+/************ Button Call To Action*********************/
+.calltoaction {
+  text-align: center;
+  /*margin-top: 40px;*/
+}
+.calltoaction button {
+  margin: 20px 0 60px 0;
+  width: 250px;
+  height: 60px;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border: none;
+  color: white;
+  font-size: 20px;
+  animation: pulse_animation 2s infinite;
+}
+@keyframes pulse_animation {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.calltoaction button:hover {
+  /*background: #811b7e;*/
+  background: #607538;
+  animation: none;
+}

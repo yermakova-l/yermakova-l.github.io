@@ -12,6 +12,8 @@ var tovPriceList = {
         rozdribna:1500,
         poslugy: 1000,
         vyrobnyctvo: 2000,
+    },
+    complex_services: {
         budivnyctvo: 2000,
         silske_gospodarstvo: 3000,
         zovn_ekon_diyalnist: 4000,
@@ -57,6 +59,8 @@ var fopPriceList = {
         rozdribna:1500,
         poslugy: 1000,
         vyrobnyctvo: 2000,
+     },
+    complex_services: {
         budivnyctvo: 2000,
         silske_gospodarstvo: 3000,
         zovn_ekon_diyalnist: 2000,
@@ -93,6 +97,7 @@ var clientData = {
     ownership_form: "",
     tax_system: "",
     services: [],
+    complex_services: [],
     additional_services: [],
     kas_apar_kilk: 0,
     zarplata: {
@@ -134,6 +139,8 @@ var currentSum = {
         rozdribna: 0,
         poslugy: 0,
         vyrobnyctvo: 0,
+    },
+    complex_services: {
         budivnyctvo: 0,
         silske_gospodarstvo: 0,
         zovn_ekon_diyalnist: 0,
