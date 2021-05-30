@@ -151,12 +151,15 @@ var currentSum = {
         lystuvannya: 0,
     },
     kas_apparat: {
+        kas_apparat: 0,
         kas_apparat_vartist: 0,
     },
     zarplata: {
+        zarplata: 0,
         zarplata_vartist: 0
     },
     kadry: {
+        kadry: 0,
         kadry_vartist: 0
     },
     realizaciya: {
@@ -164,9 +167,11 @@ var currentSum = {
        podatk_nakladni_vartist: 0
     },
     bank: {
+        bank: 0,
         bank_vartist: 0,
     },
     pervynna_doc: {
+        pervynna_doc: 0,
         pervynna_doc_vartist: 0
     }
 

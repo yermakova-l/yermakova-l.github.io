@@ -172,7 +172,7 @@
                     <div class="custom-control" >
                         <label for="bank">Кількість платежів, шт</label>
                         <output name="bank_kilk" id="bank_kilk" for="bank">0</output>
-                        <input class="custom-range-slider" type="range" id="bank" name="bank" min="0" max="1000" step="1" value="0" oninput="bank_kilk.value=bank.value"><br>
+                        <input class="custom-range-slider" type="range" id="bank" name="bank" min="0" max="1000" step="10" value="0" oninput="bank_kilk.value=bank.value"><br>
                         <p>Кількість документів вираховуємо середню за 12 місяців виходячи із загальної кількості по Журналу операцій</p>
                     </div>
                 </div>
@@ -183,9 +183,9 @@
                 </div>
                 <div class='form-item-body'>
                     <div class="custom-control" >
-                        <label for="bank">Кількість документів, шт</label>
+                        <label for="pervynna_doc">Кількість документів, шт</label>
                         <output name="pervynna_kilk" id="pervynna_kilk" for="pervynna_doc">0</output>
-                        <input class="custom-range-slider" type="range" id="pervynna_doc" name="pervynna_doc" min="0" max="1000" step="1" value="0" oninput="pervynna_kilk.value=pervynna_doc.value"><br>
+                        <input class="custom-range-slider" type="range" id="pervynna_doc" name="pervynna_doc" min="0" max="1000" step="10" value="0" oninput="pervynna_kilk.value=pervynna_doc.value"><br>
                         <p>Прихід, авансові звіти, облік ТМЦ, зведення фінзвітності</p>
                         <p>Кількість документів вираховуємо середню за 12 місяців виходячи із загальної кількості по Журналу операцій</p>
                     </div>
@@ -198,7 +198,7 @@
                     <p>Або замовте зворотній дзвінок. Наші спеціалісти зателефонують вам
                         в найближчий час в робочі години. 
                     </p>
-                    <div class="calltoaction" ><button class='recall'>Замовити зворотній дзвінок</button></div>
+                    <div class="calltoaction" ><button class='calc_recall'>Замовити зворотній дзвінок</button></div>
                 </div>
             
             </div>
@@ -210,13 +210,13 @@
         </div>
         
     </div>
-    <div id="myModal" class="modal">-->
+    <div id="calcModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
             <div id="contact_form_small" >
                     <h3>ЗАПОВНІТЬ ФОРМУ:</h3>
-                    <form action="" id="small-form" onsubmit="postToGoogleSmallForm();">
+                    <form action="" id="calc-form" onsubmit="postToGoogleCalcForm();">
                         <div class="inner-wrap">
                             <input type="text" id="pib_small" name="entry.290320857" placeholder="Ваше ім'я" required >
                         </div>
@@ -226,6 +226,7 @@
                         <div>
                             <h3 class="thankyou">Наш спеціаліст зателефонує Вам в найближчий час в робочі години!</h3>
                         </div>
+                        <input type="hidden" id="opys" name="entry.135694101" placeholder="Опис" required >
                         <div class="button-section">
                             <input type="submit" name="submit"  value="Надіслати"/></input>
                         </div>
@@ -240,19 +241,24 @@
 <script src="./data.js"></script>
 <script src="./main.js" ></script>
 <script>
-    function postToGoogleSmallForm(){
+    function postToGoogleCalcForm(){
         $.ajax({
-            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLScv__NEIt1P0WjZ447nSf-NRqDgNaYR9g_ZOkCvPXQ4ts8r9w/formResponse",
-            data: $('#small-form').serialize(),
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSch1UF8fii3p_CGRS5jeevB8ScSX_crntsZLaG-1eYJi30ykw/formResponse",
+            data: $('#calc-form').serialize(),
             type: "post",
             datatype: 'xml',
-            success: function(data){}
+            success: function(data){
+                
+
+            }
         });
         $('#pib_small').val('');
         $('#phone_small').val('');
+        $('#opys').val('');
         $('.thankyou').css('display', 'block');
-        
-        
+        var modal = document.getElementById('calcModal');
+        modal.style.display = "none";
+        document.getElementById('service_calc').reset();
         event.preventDefault();
         return false;
     }    
@@ -260,19 +266,16 @@
 <script>
         
     // Get the button that opens the modal
-    var buttons = $('.recall');
+    var button_calc_recall = $('.calc_recall');
     // Get the <span> element that closes the modal
     var spanclose = $(".close");
-    var i;
-    for( i = 0 ; i < buttons.length; i++){
-        $(buttons[i]).on('click', function() { $('#myModal').css( 'display', 'block'); });
-        
-    }
-    $(".close").on('click', function() { $('#myModal').css( 'display', 'none'); });
+
+    $(button_calc_recall).on('click', function() { $('#calcModal').css( 'display', 'block'); });
+    $(".close").on('click', function() { $('#calcModal').css( 'display', 'none'); });
 
     // When the user clicks anywhere outside of the modal, close it  
     window.onclick = function(event) {
-        var modal = document.getElementById('myModal');
+        var modal = document.getElementById('calcModal');
         if (event.target == modal) {
             modal.style.display = "none";
         }

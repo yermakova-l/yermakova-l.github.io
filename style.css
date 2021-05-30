@@ -359,14 +359,14 @@ input[type="range"] {
   color: #811b7e;
   margin-top: 10px;
 }
-#myModal .modal-content {
+#calcModal .modal-content {
   background-color: #fdfdfd;
   margin: auto;
   padding: 20px;
   width: 90%;
   max-width: 600px;
 }
-#myModal .modal-content .inner-wrap {
+#calcModal .modal-content .inner-wrap {
   margin-bottom: 0;
   padding: 10px;
   border-radius: 6px;
@@ -389,7 +389,7 @@ input[type="range"] {
   border-color: transparent transparent #2e062d transparent;
 }
 
-#myModal .modal-content .button-section {
+#calcModal .modal-content .button-section {
   text-align: center;
   padding: 10px;
 }
@@ -397,7 +397,7 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
-#myModal .modal-content .button-section input[type="submit"] {
+#calcModal .modal-content .button-section input[type="submit"] {
   background-color: #fd7e14;
   padding: 8px 20px 8px 20px;
   color: #fff;
