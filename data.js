@@ -42,6 +42,9 @@ var tovPriceList = {
     pervynna_doc: {
         pervynna_doc_1_50: 1500,
         pervynna_doc_bilshe_50: 30
+    },
+    nomenclatura: {
+        nomenclatura_odyn: 1.50,
     }
         
 }
@@ -89,6 +92,9 @@ var fopPriceList = {
     pervynna_doc: {
         pervynna_doc_1_50: 1500,
         pervynna_doc_bilshe_50: 30
+    },
+    nomenclatura: {
+        nomenclatura_odyn: 1.50,
     }
         
 }
@@ -123,6 +129,10 @@ var clientData = {
         pervynna_doc_kilk: 0,
         pervynna_doc_vartist: 0
     },
+    nomenclatura: {
+        nomenclatura_kilk: 0,
+        nomenclatura_vartist: 0
+    }
     
 };
 // Current cost to show on page
@@ -163,8 +173,10 @@ var currentSum = {
         kadry_vartist: 0
     },
     realizaciya: {
-       vyhidni_doc_vartist:  0,
-       podatk_nakladni_vartist: 0
+        vyhidni_doc: 0,
+        vyhidni_doc_vartist:  0,
+        podatk_nakladni: 0,
+        podatk_nakladni_vartist: 0
     },
     bank: {
         bank: 0,
@@ -173,6 +185,10 @@ var currentSum = {
     pervynna_doc: {
         pervynna_doc: 0,
         pervynna_doc_vartist: 0
+    },
+    nomenclatura: {
+        nomenclatura: 0,
+        nomenclatura_vartist: 0
     }
 
     

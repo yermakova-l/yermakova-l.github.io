@@ -130,7 +130,7 @@
                     <h3>Облік зарплати</h3>
                 </div>
                 <div class='form-item-body'>
-                    <label for="zarplata">Кількість працівників</label>
+                    <label for="zarplata">Зарплата, кількість працівників</label>
                     <output name="pracivnyky" id="pracivnyky" for="zarplata">0</output>
                     <input class="custom-range-slider" type="range" id="zarplata" name="zarplata" min="0" max="200" step="1" value="0" oninput="pracivnyky.value=zarplata.value"><br>
                 </div>
@@ -140,7 +140,7 @@
                     <h3>Облік кадрів</h3>
                 </div>
                 <div class='form-item-body'>
-                    <label for="kadry">Кількість працівників</label>
+                    <label for="kadry">Кадри, кількість працівників</label>
                     <output name="pracivnyky_kadry" id="pracivnyky_kadry" for="kadry">0</output>
                     <input class="custom-range-slider" type="range" id="kadry" name="kadry" min="0" max="200" step="1" value="0" oninput="pracivnyky_kadry.value=kadry.value"><br>
             </div>
@@ -183,7 +183,7 @@
                 </div>
                 <div class='form-item-body'>
                     <div class="custom-control" >
-                        <label for="pervynna_doc">Кількість документів, шт</label>
+                        <label for="pervynna_doc">Первинна документація, шт</label>
                         <output name="pervynna_kilk" id="pervynna_kilk" for="pervynna_doc">0</output>
                         <input class="custom-range-slider" type="range" id="pervynna_doc" name="pervynna_doc" min="0" max="1000" step="10" value="0" oninput="pervynna_kilk.value=pervynna_doc.value"><br>
                         <p>Прихід, авансові звіти, облік ТМЦ, зведення фінзвітності</p>
@@ -192,6 +192,20 @@
                 </div>
             </div>
             <div class='form-item' id='11'>
+                <div class="form-item-header">
+                    <h3>Створення нової номенклатури в 1С</h3>
+                </div>
+                <div class='form-item-body'>
+                    <div class="custom-control" >
+                        <label for="nomenclatura">Номенклатура, шт</label>
+                        <output name="nomenclatura_kilk" id="nomenclatura_kilk" for="nomenclatura">0</output>
+                        <input class="custom-range-slider" type="range" id="nomenclatura" name="nomenclatura" 
+                            min="0" max="1000" step="10" value="0" oninput="nomenclatura_kilk.value=nomenclatura.value"><br>
+                        <p>Кількість документів вираховуємо середню за 12 місяців виходячи із загальної кількості по Журналу операцій</p>
+                    </div>
+                </div>
+            </div>
+            <div class='form-item' id='12'>
                 <div class="form-item-header">
                     <p>Щоб уточнити умови віддаленого обслуговування, зателефонуйте нам</p>
                     <h2> +38 098 024 55 04</h2><br> 
@@ -248,6 +262,8 @@
             type: "post",
             datatype: 'xml',
             success: function(data){
+                
+
             }
         });
         $('#pib_small').val('');
@@ -256,6 +272,7 @@
         $('.thankyou').css('display', 'block');
         var modal = document.getElementById('calcModal');
         modal.style.display = "none";
+        //document.getElementById('service_calc').reset();
         event.preventDefault();
         return false;
     }    

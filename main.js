@@ -28,7 +28,7 @@
             activeSlide = activeSlide + 1;
             makeActiveSlide(activeSlide);
             currentSlide = activeSlide;
-            if( currentSlide === 11 ){
+            if( currentSlide === 12 ){
                 callToActionBtn.style.display = 'block';
             } else {
                 callToActionBtn.style.display = 'none';
@@ -40,7 +40,7 @@
             makeActiveSlide(activeSlide);
             currentSlide = activeSlide;
             console.log("currentSlide = " + currentSlide);
-            if( currentSlide === 10 ){
+            if( currentSlide === 11 ){
                 callToActionBtn.style.display = 'none';
             }
             
@@ -75,10 +75,11 @@
                     return false;
                 }
                 return true;
-            case 3: case 4: case 5: case 6: case 7: case 8: case 9:
-                callToActionBtn.style.display = 'none';
+            case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+                //callToActionBtn.style.display = 'none';
                 return true;
-            case 10:
+            case 11:
+                //callToActionBtn.style.display = 'block';
                 if(document.getElementById('tov').checked){
                     finalStateStr += 'ТОВ  ';
                 }
@@ -88,12 +89,9 @@
                 document.getElementById('opys').value = finalStateToString(currentSum);
                 console.log('Opys = ' + document.getElementById('opys').value);
                 finalStateStr = '';
-                return true;    
-            case 11:
+                return true; 
+            case 12: 
                 return false;
-            case 12: {
-                //document.getElementById('next').style.display = 'none';
-            }
             default:
                 console.log("Error! There is not such slide number");
                 return false;
@@ -280,6 +278,13 @@
                 clientData.pervynna_doc.pervynna_doc_kilk = document.getElementById('pervynna_doc').value;
                 clientData.pervynna_doc.pervynna_doc_vartist =(clientData.pervynna_doc.pervynna_doc_kilk <= 50 && clientData.pervynna_doc.pervynna_doc_kilk != 0)? 1500: clientData.pervynna_doc.pervynna_doc_kilk * 30;  
                 currentSum.pervynna_doc.pervynna_doc_vartist = clientData.pervynna_doc.pervynna_doc_vartist;
+                currentServicesCost = sumToDisplay(currentSum);
+                updateSum(currentServicesCost);
+                break;
+            case 'nomenclatura':
+                clientData.nomenclatura.nomenclatura_kilk = document.getElementById('nomenclatura').value;
+                clientData.nomenclatura.nomenclatura_vartist = clientData.nomenclatura.nomenclatura_kilk * clientPriceList.nomenclatura.nomenclatura_odyn;  
+                currentSum.nomenclatura.nomenclatura_vartist = clientData.nomenclatura.nomenclatura_vartist;
                 currentServicesCost = sumToDisplay(currentSum);
                 updateSum(currentServicesCost);
                 break;
